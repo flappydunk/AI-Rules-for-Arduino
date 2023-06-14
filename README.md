@@ -5,3 +5,4 @@ The Demo is shown using a Arduino and has been tested with a Nano, NodeMCU, ESP3
 
 Other projects will be added using this method. 
 A robotic lawnmower "Robo Grazer". A fully functional mower. Partly based on "Ardumower" hardware, motors, perimeter etc but with a completely different control system to enhance functionality and keep costs down.
+Open the Robo Grazer.xlsx file to see the Rules and generation of the HEX codes that are copied to the Rules_Prog.h file.
