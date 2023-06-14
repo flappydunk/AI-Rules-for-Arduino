@@ -22,7 +22,7 @@ void setup(){
   Serial.flush();
 
   Serial.println();
-  Serial.println(F("Rules_Based_collector_monitor_V2"));
+  Serial.println(F("Rules_Based_Robo_Grazer_monitor_V2"));
   //eeprom_init(); //
   //retrieve settings
   Sensors_setup();
