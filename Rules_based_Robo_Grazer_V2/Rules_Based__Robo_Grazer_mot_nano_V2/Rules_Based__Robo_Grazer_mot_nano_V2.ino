@@ -34,7 +34,7 @@ void setup(){
   Serial.flush();
 
   Serial.println();
-  Serial.println(F("Rules_Based_leaf_collector_mot__V2"));
+  Serial.println(F("Rules_Based_Robo_Grazer_mot__V2"));
 
   
   pinMode(LED_BUILTIN, OUTPUT);
