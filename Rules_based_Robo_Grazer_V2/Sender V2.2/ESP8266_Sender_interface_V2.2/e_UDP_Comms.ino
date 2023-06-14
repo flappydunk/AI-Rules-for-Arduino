@@ -9,7 +9,7 @@ const char* password = "MY_PWD";
 //2C:F4:32:57:A8:06   192.168.0.20
 //CC:50:E3:70:D7:49   192.168.0.21
 
-String MyHostName = "ESP12E_Collector"; //Host name
+String MyHostName = "ESP12E_Sender"; //Host name
 String myMac; //Mac address for this module 
 String MAC = "2C:F4:32:57:A8:06"; //one of the ESP12E modules
 
