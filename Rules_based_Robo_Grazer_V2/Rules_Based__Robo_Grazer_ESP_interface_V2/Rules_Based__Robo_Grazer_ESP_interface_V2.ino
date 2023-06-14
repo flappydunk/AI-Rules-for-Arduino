@@ -24,7 +24,7 @@ void setup(){
   I2C_setup(); 
   rules_setup(); 
   init_slave_rules();
-  Serial.println(F("Programme : Rules Based ESP_Interface_V1"));//This programme name
+  Serial.println(F("Programme : Rules Based Robo Grazer ESP_Interface_V2"));//This programme name
   
 }
 
