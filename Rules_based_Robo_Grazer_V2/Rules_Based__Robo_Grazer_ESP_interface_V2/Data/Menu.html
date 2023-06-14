@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>Leaf Collector Console</title>
+
+</head>
+
+<style>
+.content {
+  max-width: 500px;
+  margin: auto;
+}
+
+
+
+  body {font-size:100%;  background: Grey;}
+  #main {display: table; margin: auto;  padding: 0 5px 0 5px;  } 
+  .green  { background-color: #50FF50;  }
+  .powderblue   { background-color: #50ffff   }
+  .red    { background-color: #FF5050;  } 
+  .grey   { background-color: #ebf1f2;  } 
+  .yellow { background-color: #f7f439;  }
+  .orange { background-color: #f7b539;  }
+
+  h2 {text-align:center; } 
+  input[ type="Option" ] { width: 4em; font-size: 120%; text-align:center; border-radius:10px; } 
+  input[ type="button"  ] { width: 7em; font-size: 80%; text-align:center; border-radius:10px;background-color: orange; } 
+  input[ type="Status"  ] { font-size:50px; color:red; width: 60em; text-align:center; border: none; background-color: Grey; max-width:95%;} 
+  input[ type="text1" ]{ width: 1.2em; font-size: 120%;  background: Grey;}  
+  textarea { border: 2px solid #ccc; background: Grey;  border: none; resize: none; max-width:95%;}
+   
+
+.dropdown {
+  position: center;
+  display: inline-block;
+  display: "block";
+}
+
+.dropdown-content {
+  display: none;
+  position: relative;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  font-size: 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+.button {
+  background-color: #e4685d;
+  border: none;
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  -moz-border-radius:4px;
+  -webkit-border-radius:4px;
+  border-radius:4px;
+  color: white;
+  padding: 10px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+}
+.button:active {
+  position:relative;
+  top:2px;
+  box-shadow: 0 0 0 0 rgba(0,0,0,0.2), 0 0 0 0 rgba(0,0,0,0.19);
+}
+
+</style>
+
+ 
+<body>
+
+<div class="content">
+<h2>Robo Grazer</h2>
+
+<input  type='Status'; id='Status';  value='?';  disabled="disabled"/> 
+
+<table>
+ 
+ 	<tr>
+	<th></th>
+	<th>Status</th>
+	<th></th>
+	<th></th>
+  	</tr>
+
+	<tr>
+    	<td width="60%">Sched + ON & OFF (Hrs)</td>
+	<td> <input type='Option' id='LED12' value='?' class='grey' size='10'  disabled/>  </td>
+	<td> <input type="text1" id="SON00" name="SON00" maxlength="2" size="2"></td>
+  	<td> <input type="text1" id="SOFF00" name="SOFF00" maxlength="2" size="2"></td>
+ 	</tr>
+
+	<tr>
+    	<td width="60%">Mow Duration (Mins)</td>
+	<td> <input type='Option' id='LED0' value='?' class='grey' size='10'  disabled/>  </td>	
+	<td></td>
+	<td></td>	
+ 	</tr>
+
+   	
+   	<tr>
+    	<td width="60%">Docked?</td>
+	<td> <input type='Option' id='LED2' value='?' class='grey' size='10'  disabled/>  </td>	
+	<td></td>
+	<td></td>
+ 	</tr>
+
+   	<tr>
+    	<td width="60%">Battery</td>
+	<td> <input type='Option' id='LED3' value='?' class='grey' size='10' disabled/>  </td>
+	<td></td>
+	<td></td>
+	</tr>
+
+   	<tr>
+    	<td width="60%">Charge Status</td>
+	<td> <input type='Option' id='LED4' value='?' class='grey'  size='10' disabled/>  </td>
+	<td></td>
+	<td></td>
+	</tr>
+
+   	<tr>
+    	<td width="60%">Mowing Status</td>
+	<td> <input type='Option' id='LED5' value='?' class='grey'  size='10'  disabled/>  </td>
+	<td></td>
+	<td></td>
+	<td></td>
+	</tr>
+
+   	<tr>
+    	<td width="60%">Perimeter Status</td>
+	<td> <input type='Option' id='LED6' value='?' class='grey'  size='10'  disabled/>  </td>
+	<td></td>
+	<td></td>
+	<td></td>
+ 	</tr>
+
+   	
+   	<tr>
+    	<td width="60%">Battery Voltage</td>
+	<td> <input type='Option' id='LED8' value='?' class='grey'  size='10'  disabled/>  </td>
+	<td></td>
+	<td></td>
+	</tr>
+
+   	<tr>
+    	<td width="60%">Sender Current</td>
+	<td> <input type='Option' id='LED9' value='?' class='grey'  size='10' disabled/>  </td>
+	<td></td>
+	<td></td>
+	</tr>
+
+	<tr>
+    	<td width="60%">Charge Voltage</td>
+	<td> <input type='Option' id='LED10' value='?' class='grey'  size='10' disabled/>  </td>
+	<td></td>
+	<td></td>
+	</tr>
+
+	<tr>
+    	<td width="60%">Charge Duration (Mins)</td>
+	<td> <input type='Option' id='LED11' value='?' class='grey' size='10'  disabled/>  </td>
+	<td></td>
+	<td></td>		
+ 	</tr>
+	<tr>
+    	<td width="60%">Temperature (C)</td>
+	<td> <input type='Option' id='LED13' value='?' class='grey' size='10'  disabled/>  </td>
+	<td></td>
+	<td></td>		
+ 	</tr>
+
+	
+ </table>
+
+<br><br/>
+<input type='button'  onclick="sendData('2','0')" value='Start Mowing'</>
+<input type='button'  onclick="sendData('1','2')" value='Go Home'</>
+<input type='button'  onclick="sendData('1','0')" value='Stop'</>
+<input type='button'  onclick="sendData('1','6')" value='Power Off'</>
+<input type='button'  onclick="sendData('R','0')" value='Reset'</>
+
+
+
+<div>
+<input type="button" onclick="sendData('S','2')" value='Toggle Lawn'</>
+<input type="button" id="Tests" onclick="HideFunction()" value='Show Tests'</>
+<input type="button" id="Sched" onclick="sendData('D','0')" value='Sched Off'</>
+<input type="button" onclick="schedData()" value='Save'</>
+<input type="button" onclick="sendData('C','0')" value='Clear Log'</>
+</div>
+
+<p></p>
+<textarea rows='1'  cols='60'   id='Time' name = 'Time' >Date_time</textarea> <br/>
+<textarea rows='20' cols='60' style='background-color:#FFFFFF' id="myTextarea" name = 'Log_messages' ></textarea>
+<p></p>
+</div>
+
+<div id="myDIV" style= "display: none">
+<br><br/>
+<div style="margin-top: 1.0em;text-align: center;">
+
+
+
+
+
+<div  style="text-align: center">
+	<div class="dropdown">
+  		<button class="dropbtn">-------------------------Mower Menu------------------------</button>
+  		<div class="dropdown-content">
+			<a href="javascript:sendData('C','0');">Clear Log</a>  			
+			<a href="javascript:sendData('1','0');">Stop</a>
+  			<a href="javascript:sendData('2','0');">Start Auto Mowing</a>
+  			<a href="javascript:sendData('1','2');">Drive Home</a>
+			<a href="javascript:sendData('R','0');">Reset</a>
+  			<a href="javascript:sendData('5','0');">Active Flags</a>
+			<a href="javascript:sendData('S','2');">Toggle Peri</a>
+			<a href="javascript:sendData('D','0');">Toggle Sched</a>
+
+  		</div>
+	</div>
+
+</div>
+
+
+
+
+
+</div> 
+
+</body>
+
+
+ <script>
+function Send_P_PID(){
+var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+
+      var Data1 = this.responseText;
+      if (Data1 != "") {
+      		var temp = new Array();
+		temp = Data1.split(",");
+		document.getElementById("Kp").value = temp[1];
+		document.getElementById("Ki").value = temp[2];
+		document.getElementById("Kd").value = temp[3];
+		document.getElementById("Kx").value = temp[4];
+      }
+    }
+  };
+  var Kp = document.getElementById("Kp").value; 	
+  var Ki = document.getElementById("Ki").value;
+  var Kd = document.getElementById("Kd").value;
+  var Kx = document.getElementById("Kx").value;
+
+  xhttp.open("GET", "P_PID?KpState="+Kp+"&KiState="+Ki+"&KdState="+Kd+"&KxState="+Kx, true);
+  xhttp.send();
+}
+
+function Send_M_PID(){
+var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     
+      var Data1 = this.responseText;
+      if (Data1 != "") {
+      		var temp = new Array();
+		temp = Data1.split(",");
+		document.getElementById("Mp").value = temp[1];
+		document.getElementById("Mi").value = temp[2];
+		document.getElementById("Md").value = temp[3];
+      }
+    }
+  };
+  var Mp = document.getElementById("Mp").value; 	
+  var Mi = document.getElementById("Mi").value;
+  var Md = document.getElementById("Md").value;
+
+  xhttp.open("GET", "M_PID?MpState="+Mp+"&MiState="+Mi+"&MdState="+Md, true);
+  xhttp.send();
+}
+
+
+
+function sendData(ButtonVal,ArgVal) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var x = document.getElementById("myTextarea").value;
+      document.getElementById("myTextarea").value = x + this.responseText;
+    }
+  };
+  xhttp.open("GET", "setMenu?MenuState="+ButtonVal+"&ArgState="+ArgVal, true);
+  xhttp.send();
+}
+
+function schedData() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var x = document.getElementById("myTextarea").value;
+      document.getElementById("myTextarea").value = x + this.responseText;
+    }
+  };
+
+  var K1 = document.getElementById("SON00").value; 	
+  var K2 = document.getElementById("SOFF00").value;
+
+  xhttp.open("GET", "/setSched?K1state="+K1+"&K2state="+K2, true);
+  xhttp.send();
+}
+
+
+
+setInterval(function() {
+  // Call a function repetatively with 2 Second interval
+  getData();
+}, 2000); //2000mSeconds update rate
+
+function crop_Log(message){
+  var e = message.length - 2;
+  if (e < 4) {return String("");}
+  return message.substring(4, e); //Strip Logmessage header
+}
+
+
+
+function getData() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+	var Data1 = this.responseText;
+      	
+	if (Data1 != "") {
+		var temp = new Array();
+		temp = Data1.split(",");
+
+		if (temp[0] == "M: ") {//Logmessage only
+		    var x =  Data1; 		    
+		    document.getElementById("myTextarea").value = crop_Log(x);
+		} 
+		else {			
+					
+			
+			if (temp[2] == "G") {document.getElementById("LED2").style.background = 'green';}//Dockiing
+			if (temp[2] == "G") {document.getElementById("LED2").value = 'Yes';}//Dockiing
+			if (temp[2] == "O") {document.getElementById("LED2").style.background = 'black';}//
+			if (temp[2] == "O") {document.getElementById("LED2").value = 'No';}//
+
+			if (temp[3] == "G") {document.getElementById("LED3").style.background = 'green';}//Battery
+			if (temp[3] == "G") {document.getElementById("LED3").value = 'OK';}//Battery
+			if (temp[3] == "B") {document.getElementById("LED3").style.background = 'blue';}//
+			if (temp[3] == "B") {document.getElementById("LED3").value = 'Charge';}//Battery
+			if (temp[3] == "R") {document.getElementById("LED3").style.background = 'red';}//
+			if (temp[3] == "R") {document.getElementById("LED3").value = 'Poor';}//
+			if (temp[3] == "O") {document.getElementById("LED3").style.background = 'black';}//
+			if (temp[3] == "O") {document.getElementById("LED3").value = '?';}//
+
+			if (temp[4] == "G") {document.getElementById("LED4").style.background = 'green';}//Charging
+			if (temp[4] == "G") {document.getElementById("LED4").value = 'ON';}//Charging
+			if (temp[4] == "O") {document.getElementById("LED4").style.background = 'black';}//
+			if (temp[4] == "O") {document.getElementById("LED4").value = 'OFF';}//
+			if (temp[4] == "Y") {document.getElementById("LED4").style.background = 'yellow';}//
+			if (temp[4] == "Y") {document.getElementById("LED4").value = 'ERR';}//
+
+			document.getElementById("LED5").value = temp[12];//
+			if (temp[12] != "OK") {document.getElementById("LED5").style.background = 'yellow';}//
+			if (temp[12] == "OK") {document.getElementById("LED5").style.background = 'green';}//
+
+		
+			if (temp[8] == "G") {document.getElementById("LED6").style.background = 'green';}//Perimeter Status
+			if (temp[8] == "R") {document.getElementById("LED6").style.background = 'red';}//
+
+			document.getElementById("LED0").value = temp[10]; //Mow duration
+			document.getElementById("LED6").value = temp[11]; //Garden loop
+			
+			document.getElementById("LED8").value = temp[13];//Batt Volts
+			document.getElementById("LED9").value = temp[14];//Sender Current
+			document.getElementById("LED10").value = temp[15];//Charge Voltage
+			document.getElementById("Status").value = temp[16];//Mow Status at top
+			document.getElementById("LED11").value = temp[17];//Charge duration
+			document.getElementById("LED12").value = temp[18]; //Scheduler ON or OFF
+			if (temp[18] == "ON") {document.getElementById("LED12").style.background = 'green';}//Sched Status
+			if (temp[18] == "ON") {document.getElementById("Sched").value = "Sched OFF";}
+			if (temp[18] == "OFF") {document.getElementById("LED12").style.background = 'black';}//Sched Status
+			if (temp[18] == "OFF") {document.getElementById("Sched").value = "Sched ON";}
+			if (temp[19] != "X") {document.getElementById("SON00").value = temp[19];}//Sched_ON_time
+			if (temp[20] != "X") {document.getElementById("SOFF00").value = temp[20];}//Sched_OFF_Time
+			if (temp[21] != "X") {document.getElementById("MF00").value = temp[21];}//Short Forward error count	
+			if (temp[22] != "X") {document.getElementById("PT00").value = temp[22];}//max Perimeter transition time
+			document.getElementById("LED13").value = temp[23];//Temperature
+			document.getElementById('Time').value = temp[24];//Current Time
+
+		}
+	}
+    }
+    
+
+  };
+  var Update = 0;
+  if (document.getElementById("myTextarea").value == ""){Update = 2;} //log field
+  if ((document.getElementById("SON00").value == "") & (document.getElementById("SOFF00").value == "")){Update = 1;} //scheduller
+  
+  xhttp.open("GET", "/console?State="+Update, true);
+  xhttp.send();
+}
+
+
+
+function HideFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    document.getElementById("Tests").value = "Hide Tests";
+  } else {
+    x.style.display = "none";
+    document.getElementById("Tests").value = "Show Tests";
+  }
+}
+
+
+
+
+ 
+
+</script>
+</div>
+</body>
+</html>
+
