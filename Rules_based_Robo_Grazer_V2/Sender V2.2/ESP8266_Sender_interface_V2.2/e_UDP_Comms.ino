@@ -1,8 +1,8 @@
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
 
-const char* ssid = "NETGEAR_2GEXT";
-const char* password = "kindballoon175";
+const char* ssid = "MY_SSID";
+const char* password = "MY_PWD";
 
 //  Set up names for ESP12E
 //reserved addresses
