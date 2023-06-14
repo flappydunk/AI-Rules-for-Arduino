@@ -70,7 +70,7 @@ Working out the HEX integers can be tedious so I use a spreadsheet. By setting t
 
 Some Flags could be set by an external means. e.g a sensor. These would be read only so I usually shade the cell these to indicate it is pointless for a rule to change its state.
 
-See the attached file. I was not able to load a .xls file so I have included a .pdf to show you how the spreadsheet is created using a series of "=BIN2HEX(CONCATENATE($B7,$C7,$D7,$E7),1)" formulas to create the HEX codes you need.
+See the attached .xls file. The spreadsheet is created using a series of "=BIN2HEX(CONCATENATE($B7,$C7,$D7,$E7),1)" formulas to create the HEX codes you need.
 
 Step 4: Implementing Your Rules on Arduino
 
