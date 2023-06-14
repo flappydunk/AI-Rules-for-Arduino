@@ -15,6 +15,7 @@ Therefore this project just deals with Rules setting up and how to do it. This e
 So as an introduction to this method I will illustrate using a Arduino Nano to test a basic Demo program. This will be a temperature sensor that operates a a FAN and simulate a flashing LED with a ON period of 10 seconds and a OFF period of 5 seconds. Have a look at the spreadsheet and you will see a grid for 32 Flags and what each rule will do. Also you can assign the commands and timers needed. This is explained in more detail later.
 
 Step 1: Lets Define the Flags for the Demo
+
 The basis of the rules control is having a Flag(s) for each important state. To make things easy and more compact the flags are held in a 32bit unsigned integer (system_current) . So one integer indicates the full state of you program and each bit represents a Flag. So 32 Flags can be monitored. Each Flag can be assigned a name, and starting state. Also if a rule activates a Flag it can be associated with a command (to action something) and a timer (to change its state).
 
 
@@ -38,6 +39,7 @@ bit 3 : Temperature Sensor [Read only]
 bit 4 : Fan [ The FAN state 1= ON, 0 = OFF]
 
 Step 2: Lets Define Rules
+
 First, how does a rule work. All rules are examined sequentially by the program. Each rule takes the system_current integer and compares it to a mask integer. The mask defines which Flags to look at.
 
 Each rule has a action integer. This tells it the state the Flag must be in before it can fire. Only when all the Flags have the correct state compared to the action integer can a rule fire. So it's essentially a 32 input AND gate that can have up to 32 outputs.
@@ -61,6 +63,7 @@ FAN_OFF: mask 0x18, action 0x10, output_0 0x14, output_1 0x0
 So a command could be associated with the LED Flag to send a remote signal, or print a message, when the LED was ON or OFF. Also you could read a Flag directly and set a pin for the FAN. For this Demo we will use print statements to reduce complexity.
 
 Step 3: Rules Spreadsheet
+
 As the number of Flags increase so does complexity of the codes and rule interactions. Examining raw code can be tedious to sort out system states particularly when the system is doing many things. With this rules based system the full program is displayed on a spreadsheet making amendments to your functionality much simpler and defines fully all the parts of you program in one view.
 
 Working out the HEX integers can be tedious so I use a spreadsheet. By setting the Flags states as needed it works out the HEX for you.
@@ -70,6 +73,7 @@ Some Flags could be set by an external means. e.g a sensor. These would be read 
 See the attached file. I was not able to load a .xls file so I have included a .pdf to show you how the spreadsheet is created using a series of "=BIN2HEX(CONCATENATE($B7,$C7,$D7,$E7),1)" formulas to create the HEX codes you need.
 
 Step 4: Implementing Your Rules on Arduino
+
 The code doesn't need specifically need a Arduino as I expect it could be used on other C platforms. The Arduino makes in convenient to test and I have had considerable success using Nano, NodeMCU, ESP32 etc.
 
 The Rules code consists of two files Rules.h and Rules_prog.h. The former is the library functionality for the Rules. The other file is where you enter your HEX codes from the spreadsheet as well as setting up your Flags, commands and timers. These files generate serial messages that give the status of the rules as they run.
@@ -113,6 +117,7 @@ So if a timer_1 duration > 0 is specified and Flag associated with a timer is se
 Similarly timer_0 duration > 0 is specified and Flag associated with a timer is set to 0. It will stay at 0 for the duration then be set to 1 by the timer.
 
 Step 5: Create Your Interfaces
+
 Input Sensors:
 
 As you can see inputs from sensors have to activate Flags. This being a logic system each Flag has only states 0 and 1. Depending on your control your have options when creating your stubs of code to handle the external interface. For example:
