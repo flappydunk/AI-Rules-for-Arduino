@@ -52,8 +52,8 @@ String reply;
   //#include "SPIFFS.h"
 //#endif
 
-const char* ssid = "NETGEAR_2GEXT";
-const char* password = "kindballoon175";
+const char* ssid = "MY_SSID";
+const char* password = "MY_PWD";
 unsigned int localUdpPort = 4210;  // local port to listen on for Perimeter Sender
 
 
