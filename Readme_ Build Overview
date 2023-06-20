@@ -49,7 +49,8 @@ Nano Board: This board has two Arduino Nanos fitted.
           if a bump is detected. It provides noise filtering (capacitors and resistors) on the long wiring. Key flag status is gathered by the NodeMCU to keep in step with whats going on.
           
           Monitor Nano: Rules Based Control. This nano handles all the sensor collection. It provides battery monitoring, Rain sensor, Power Servo, Leaf collecter servo (still experimental),
-          Temperature monitoring and Fan control. Key flag status is gathered by the NodeMCU to keep in step with whats going on.
+          Temperature monitoring and Fan control. Also Bumpers which sends a STOP signal via a dedicated link to the Motors. 
+          Key flag status is gathered by the NodeMCU to keep in step with whats going on.
           
  24V Board: This board originall modified from Ardumower V2 provides a 24v control and fusing for charging and monitoring voltages. This interfaces the Battery
  to the Power Board.
