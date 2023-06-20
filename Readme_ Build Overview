@@ -38,7 +38,7 @@ able do away with Arduino Nano. So this board only has a NodeMCU fitted. It cont
 It brings together all the information from all the boards including the sender for presentation to the web page. 
 
 Key Functions are : Overall Status, Error monitoring, Charge and mowing timer, current display for charging and Perimeter, Simple Scheduler, Perimeter status,
-Perimeter switching, Temperature, Docking, Rules Log display, and control buttons.
+Perimeter switching, Temperature, Docking, Real Time Clock via NTP, Rules Log display, and control buttons.
 It also has a ability to power down completely. The mower if commanded to SHUTDOWN. Will go home, charge itself and then using a servo power down the Robo Grazer, 
 also it will power down the sender using a TPlink mains power controller. Robo Grazer can communicate directly with it and turn the power off.
 On startup when the TPlink is activated a relay in Robo mower operates and powers up the Robo Grazer and switches the servo on.
