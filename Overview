@@ -1,0 +1,83 @@
+Intro
+This build is provided with greatest thanks to all diy developers out there. I hope this build helps you and you are free to use whatever parts
+you need. I have tried to keep it error free but I cannot gaurentee that it is. Please extra take care using large lithium batteries as used in Robo Grazer.
+Do not charge them in your home without supervision.
+
+Please note thanks to the Ardumower community. The Sender is based on the original Ardumower V2 code. It has had some minor modifications.
+
+Rules Based programming:
+I have created a seperate Demo to illustrate how the rules work. Its amazingly flexible and adding functionality is quite simple. The command and control setup is provided in a .XLS file.
+It shows you how the Hex codes are created for use in the Arduino modules. So if you need to modify or change the way Robo Grazer interacts in the environment or add or change sensors 
+you can with minimal programming. You will see the Rules can handle Servos, temperature modules, moisture and using sequenced commands if need be and change the behaviour of Robo Grazer
+with just a few HEX codes. So to fully understand the code provided you will need to have a look at how the Rules work.
+ 
+Robo Grazer
+The section covers the general build and gives some insight to what I wanted to achieve in building Robo Grazer.
+
+First I wanted the ability to modify and upgrade parts of the system with as little rebuilds or new circuit boards. 
+Flexibility was key but I wanted to be able to have a prototype and a finished project without getting custom boards made.
+So I have used a modular approach a rack (back plane) and standard size board system. Each board components interconnected using the board wire wrapping method.
+
+Wire Wrapping
+The project is built using wire wrapping. I decided to use this since I have had experience with it. I used to work in Telephones exchanges
+and this was the prime method of connecting the various parts together and proved wholly reliable.
+
+Using the standard square pins (0.1 inch) veroboard style. I have discovered they do provide a reliable method
+for interconnecting components. This allows flexiblity on the board to situate a component where you like and using "Wire Wrapping wire"
+to connect to the components. Where power and ground is needed standard solder and wire is used for powering the devices. 
+Some signalling gnds/earth can be done using wire wraps. A pin can generally take two wraps so looping wire around is straight forward.
+Care is needed when wrapping as the wire is quite thin. Dont use over pressure and cover half the pin and you should be OK.
+
+
+Boards
+Robo Grazer has a Backplane on which are mounted the following:
+Power board: Converts 24v to 5V and delivers it to the back plane. It also provides power for two 12v fans in series.
+
+NodeMCU Board: This board originaly had a NodeMCU and a Arduino Nano fitted. However later work when implementing the Rules method I was
+able do away with Arduino Nano. So this board only has a NodeMCU fitted. It controls the interconnection of the boards using I2C and level shifter.
+It brings together all the information from all the boards including the sender for presentation to the web page. 
+
+Key Functions are : Overall Status, Error monitoring, Charge and mowing timer, current display for charging and Perimeter, Simple Scheduler, Perimeter status,
+Perimeter switching, Temperature, Docking, Rules Log display, and control buttons.
+It also has a ability to power down completely. The mower if commanded to SHUTDOWN. Will go home, charge itself and then using a servo power down the Robo Grazer, 
+also it will power down the sender using a TPlink mains power controller. Robo Grazer can communicate directly with it and turn the power off.
+On startup when the TPlink is activated a relay in Robo mower operates and powers up the Robo Grazer and switches the servo on.
+
+Nano Board: This board has two Arduino Nanos fitted. 
+          Motor Nano: Rules Based Control. This really is the control of all the motors, and evasive manoeuvres of Robo Grazer. It also monitors the Perimeter signals from the sender
+          It controls the wire tracking and homing to the base station. It does have a direct connection the monitor Nano called STOP to immediatly stop the grazer
+          if a bump is detected. It provides noise filtering (capacitors and resistors) on the long wiring. Key flag status is gathered by the NodeMCU to keep in step with whats going on.
+          
+          Monitor Nano: Rules Based Control. This nano handles all the sensor collection. It provides battery monitoring, Rain sensor, Power Servo, Leaf collecter servo (still experimental),
+          Temperature monitoring and Fan control. Key flag status is gathered by the NodeMCU to keep in step with whats going on.
+          
+ 24V Board: This board originall modified from Ardumower V2 provides a 24v control and fusing for charging and monitoring voltages. This interfaces the Battery
+ to the Power Board.
+  
+ Motor Driver: This board is seperated from the backplane due to high power and is kept near to the motors to reduce interference. It provides drivers for the mow motor as well as the drive motors.
+ All protection circuitry is on the board to protect the 5v logic. Interface resistors are provided on the boards to all the 5V signalling to the Motor Nano.
+ 
+ Sender
+ The sender also uses this backplane but this only has two boards. You can see this uses a TPlink power control plug. However this can be omitted.
+ NodeMCU and Nano Board: The Perimeter control is provided bya Arduino Nano. This sneds the encoded signal to the perimeter wire. It has the ability to manage two perimeters (not simultaniously)
+ The perimeter can be turned on or OFF and select the perimeter needed by Robo Grazer. The NodeMCO provides a UDP connection for Robo Grazer to collect current and charging data.
+ 
+ Power and Current monitoring Board:This takes the 24v power from the standard charger and connects it to the Home Station when charging is needed. It also powers the Sender driver a L295N
+ which delviers power to the garden current loop(s).
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+          
