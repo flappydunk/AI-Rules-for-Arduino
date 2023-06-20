@@ -52,10 +52,10 @@ Nano Board: This board has two Arduino Nanos fitted.
           Temperature monitoring and Fan control. Also Bumpers which sends a STOP signal via a dedicated link to the Motors. 
           Key flag status is gathered by the NodeMCU to keep in step with whats going on.
           
- 24V Board: This board originall modified from Ardumower V2 provides a 24v control and fusing for charging and monitoring voltages. This interfaces the Battery
+ 24V Board: This board original modified from Ardumower V2 provides a 24v control and fusing for charging and monitoring voltages. This interfaces the Battery
  to the Power Board.
   
-Motor Driver: This board is seperated from the backplane due to high power and is kept near to the motors to reduce interference. It provides drivers for the mow motor as well as the drive motors.
+Motor Driver: This board is separated from the backplane due to high power and is kept near to the motors to reduce interference. It provides drivers for the mow motor as well as the drive motors.
 All protection circuitry is on the board to protect the 5v logic. Interface resistors are provided on the boards to all the 5V signalling to the Motor Nano.
 Plug in boards Dual_TB67H420FTG_Motor_Driver and Dual_MC33926 are mounted on the board.
  
