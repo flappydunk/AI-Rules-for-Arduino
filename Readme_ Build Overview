@@ -62,14 +62,19 @@ Nano Board: This board has two Arduino Nanos fitted.
  NodeMCU and Nano Board: The Perimeter control is provided bya Arduino Nano. This sneds the encoded signal to the perimeter wire. It has the ability to manage two perimeters (not simultaniously)
  The perimeter can be turned on or OFF and select the perimeter needed by Robo Grazer. The NodeMCO provides a UDP connection for Robo Grazer to collect current and charging data.
  
- Power and Current monitoring Board:This takes the 24v power from the standard charger and connects it to the Home Station when charging is needed. It also powers the Sender driver a L295N
- which delviers power to the garden current loop(s).
+ Power and Current monitoring Board:This takes the 24v power from the standard charger and connects it to the Home Station when charging is needed. It also powers the Sender driver a L295N(s)
+ which delivers power to the garden current loop(s).
  
- 
- 
- 
- 
- 
+ Over Board Configuration
+
+Sender <---- UDP ------> NodeMCU --->  http Web Page
+                            |
+                           I2C (Polling) (via level shifter)
+                            |
+Arduino Nano (motors) >--------------< Arduino Nano (Monitor)
+           ^                                   |
+           |                                   |
+           |_____________( STOP ) _____________|
  
  
  
